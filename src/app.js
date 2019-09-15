@@ -15,6 +15,12 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/help", (req, res) => {
+  res.render("help", {
+    title: "Help"
+  });
+});
+
 app.get("/weather", (req, res) => {
   res.send({
     location: "Hong Kong",

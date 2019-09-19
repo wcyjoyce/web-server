@@ -42,7 +42,13 @@ app.get("/weather", (req, res) => {
   });
 });
 
-// Error 404
+// Error 404 - needs to be called at the end of all route paths
+app.get("/help/*", (req, res) => {
+  res.render("error", {
+    title: "Help Page Not Found"
+  });
+});
+
 app.get("*", (req, res) => {
   res.render("error", {
     title: "404 Error Not Found"

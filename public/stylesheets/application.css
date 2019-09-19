@@ -1,8 +1,42 @@
 body {
-  margin: 25px;
+  margin: 75px;
 }
 
 img {
   height: 200px;
   border-radius: 50%;
+}
+
+h1 {
+  margin: 15px 0px;
+}
+
+p {
+  margin: 10px 0px;
+}
+
+.navigation {
+  padding: 10px 0px;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: grey;
+  padding: 0px 5px;
+  margin-right: 10px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.content {
+  margin: 30px 0px;
+}
+
+.footer {
+  padding: 10px 0px;
+  color: grey;
 }

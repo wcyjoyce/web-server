@@ -19,8 +19,7 @@ app.use(express.static(publicDirectory));
 // 2 arguments required: (i) route, and (ii) callback function
 app.get("/", (req, res) => {
   res.render("index", {
-    title: "Handlebars title",
-    name: "Joyce"
+    title: "Handlebars title"
   });
 });
 

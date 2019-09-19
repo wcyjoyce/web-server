@@ -42,5 +42,12 @@ app.get("/weather", (req, res) => {
   });
 });
 
+// Error 404
+app.get("*", (req, res) => {
+  res.render("error", {
+    title: "404 Error Not Found"
+  });
+});
+
 // Starts up server
 app.listen(3000);

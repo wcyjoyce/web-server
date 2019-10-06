@@ -1,6 +1,8 @@
 const express = require("express");
 const path = require("path");
 const hbs = require("hbs");
+const geocode = require("./utilities/geocode.js");
+const forecast = require("./utilities/forecast.js");
 
 const app = express();
 
@@ -36,9 +38,24 @@ app.get("/help", (req, res) => {
 });
 
 app.get("/weather", (req, res) => {
-  res.send({
-    location: "Hong Kong",
-    forecast: "It is sunny."
+  if (!req.query.address) {
+    return res.send({
+      error: "You must provide an address."
+    });
+  };
+
+  geocode(req.query.address, (error, { lat, lng, location }) => {
+    if (error) {
+      return res.send({ error });
+    } else {
+      forecast(lat, lng, (error, forecastData) => {
+        res.send({
+          query: req.query.address,
+          location: location,
+          forecast: forecastData
+        });
+      });
+    };
   });
 });
 
